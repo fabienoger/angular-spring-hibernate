@@ -18,8 +18,12 @@ public class PersonService {
 		return personRepository.findAll();
 	}
 
-	public Person add(Person person) {
+	public Person addOrUpdate(Person person) {
 		return personRepository.save(person);
+	}
+
+	public void delete(Integer id) {
+		personRepository.delete(id);
 	}
 
 }
