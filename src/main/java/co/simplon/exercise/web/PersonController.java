@@ -15,7 +15,7 @@ import co.simplon.exercise.core.service.PersonService;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/person")
+@RequestMapping("/api/person")
 public class PersonController {
 
 	@Autowired
