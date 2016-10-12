@@ -16,8 +16,6 @@
     
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 
-    <jdbc:embedded-database id="dataSource" type="H2" />
-
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="persistenceUnitName" value="spring-jpa"/>
@@ -25,13 +23,20 @@
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
                 <property name="showSql" value="true"/>
                 <property name="generateDdl" value="true"/>
-                <property name="database" value="H2"/>
+                <property name="database" value="MYSQL"/>
             </bean>
         </property>
     </bean>
 
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+    
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    	<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    	<property name="url" value="jdbc:mysql://localhost:3306/angular_spring_hibernate"/>
+    	<property name="username" value="foger"/>
+    	<property name="password" value="foger_password"/>
     </bean>
 
     <tx:annotation-driven/>
