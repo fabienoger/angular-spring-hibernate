@@ -1,0 +1,8 @@
+body.container form.removePersonForm {
+	display: inline-block;
+} 
+
+body.container ul.listPersons li {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
